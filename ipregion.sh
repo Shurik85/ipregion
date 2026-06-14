@@ -1708,11 +1708,11 @@ lookup_google() {
   local ip_version="$1"
   local response
 
-  response=$(curl_wrapper GET "https://www.google.com" \
+  response=$(curl_wrapper GET "https://accounts.google.com/v3/signin/identifier?flowName=GlifSetupAndroid" \
     --user-agent "$USER_AGENT" \
     --ip-version "$ip_version")
 
-  grep_wrapper --perl '"MgUcDb":"\K[^"]*' <<<"$response"
+  grep_wrapper --perl 'name="region" value="\K[^"]*' <<<"$response"
 }
 
 lookup_gemini_supported() {

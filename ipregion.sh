@@ -1731,9 +1731,9 @@ lookup_gemini_supported() {
     return
   fi
 
-  country_name=$(curl_wrapper GET "https://restcountries.com/v3.1/alpha/${country_code}?fields=name" \
+  country_name=$(curl_wrapper GET "https://www.apicountries.com/alpha/${country_code}" \
     --ip-version "4")
-  country_name=$(process_json "$country_name" ".name.common")
+  country_name=$(process_json "$country_name" ".name")
 
   if [[ -z "$country_name" || "$country_name" == "null" ]]; then
     echo ""

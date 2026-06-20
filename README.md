@@ -17,6 +17,22 @@ chmod +x ipregion.sh
 bash <(wget -qO- https://ipregion.vrnt.xyz)
 ```
 
+### Mirror (proxy through server)
+
+If direct access to GitHub is unreliable or slow for you, use the mirror domain. It fetches the script through the server instead of redirecting you to GitHub:
+
+```bash
+# Download and run locally
+wget -O ipregion.sh https://ipregion.mirror.vrnt.xyz
+chmod +x ipregion.sh
+
+# Run directly
+bash <(wget -qO- https://ipregion.mirror.vrnt.xyz)
+```
+
+> [!NOTE]
+> Unlike `ipregion.vrnt.xyz`, which simply redirects to GitHub, `ipregion.mirror.vrnt.xyz` proxies the request through the server (client -> server -> GitHub). Use it when the primary domain works poorly due to GitHub connectivity issues
+
 ### Docker
 
 #### Run the container for IPv4 (default Docker bridge network)
